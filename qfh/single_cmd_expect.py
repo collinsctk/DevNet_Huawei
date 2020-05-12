@@ -8,7 +8,6 @@ class QYTHuaweiSSH:
         self.client.load_system_host_keys()
         self.client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         self.client.connect(hostname=hostname, username=username, password=password)
-        self.interact = ''
 
     def dis_cur(self, verbose=False):
         try:
