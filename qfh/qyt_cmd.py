@@ -94,9 +94,9 @@ if __name__ == '__main__':
                 'network 10.1.1.0 0.0.0.255',
                 'network 2.2.2.2 0.0.0.0'
                 ]
-    # client1.config(c_cmds_1, verbose=True)
-    # client2.config(c_cmds_2, verbose=True)
+    client1.config(c_cmds_1, verbose=True)
+    client2.config(c_cmds_2, verbose=True)
 
-    # print(client1.dis_cur())
+    print(client1.dis_cur())
     for r in client1.display(['display ospf peer', 'dis ver']):
         print(r)
