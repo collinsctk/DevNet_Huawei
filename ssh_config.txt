@@ -1,0 +1,40 @@
+AR12000V SSH配置 可以用telnet+端口号方式
+user:super
+admin:super
+=====================================
+system-view
+interface GigabitEthernet 0/0/1
+ ip address 192.168.1.151 255.255.255.0
+ undo shutdown
+aaa
+local-user admin password cipher Cisc0123
+local-user admin privilege  level 15
+local-user admin service-type ssh
+quit
+ssh user admin authentication-type password
+stelnet server enable
+ssh server hmac sha1
+!
+ssh server permit interface GigabitEthernet0/0/1
+user-interface vty 0 4
+authentication-mode aaa
+protocol inbound ssh
+
+=====================================
+system-view
+interface GigabitEthernet 0/0/1
+ ip address 192.168.1.152 255.255.255.0
+ undo shutdown
+aaa
+local-user admin password cipher Cisc0123
+local-user admin privilege  level 15
+local-user admin service-type ssh
+quit
+ssh user admin authentication-type password
+stelnet server enable
+ssh server hmac sha1
+!
+ssh server permit interface GigabitEthernet0/0/1
+user-interface vty 0 4
+authentication-mode aaa
+protocol inbound ssh
