@@ -1,5 +1,4 @@
 from qfh.modules.snmp_v2_get import snmpv2_get
-from qfh.modules.snmp_v2_getbulk import snmpv2_getbulk
 from qfh.modules.snmp_v2_getnext import snmpv2_getnext
 
 
@@ -41,12 +40,21 @@ if __name__ == '__main__':
     r1 = '192.168.1.151'
     community_ro = "QytangR0"
     snmp_client = QYTHuaweiSNMP(r1, community_ro)
+    # 系统描述
     print(snmp_client.sys_desc())
+    # 主机名
     print(snmp_client.hostname())
+    # 地点
     print(snmp_client.location())
+    # CPU利用率
     print(snmp_client.cpu_usage())
+    # 内存利用率
     print(snmp_client.mem_usage())
+    # 接口清单
     print(snmp_client.get_ifs())
+    # 接口速率
     print(snmp_client.get_if_speed())
+    # 接口入向字节数
     print(snmp_client.get_if_in_bytes())
+    # 接口出向字节数
     print(snmp_client.get_if_out_bytes())
