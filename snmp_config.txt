@@ -1,0 +1,4 @@
+snmp-agent sys-info version v2c
+snmp-agent sys-info contact collinsctk
+snmp-agent sys-info location beijing_qyt
+snmp-agent community read QytangR0

@@ -73,30 +73,30 @@ if __name__ == '__main__':
     client1 = QYTHuaweiSSH(hostname=r1, username=username, password=password)
     client2 = QYTHuaweiSSH(hostname=r2, username=username, password=password)
 
-    # c_cmds_1 = ['sysname AR1',
-    #             'interface LoopBack 0',
-    #             'ip address 1.1.1.1 32',
-    #             'interface GigabitEthernet 0/0/2',
-    #             'ip address 10.1.1.1 24',
-    #             'ospf 1 router-id 1.1.1.1',
-    #             'area 0.0.0.0',
-    #             'network 10.1.1.0 0.0.0.255',
-    #             'network 1.1.1.1 0.0.0.0'
-    #             ]
-    #
-    # c_cmds_2 = ['sysname AR2',
-    #             'interface LoopBack 0',
-    #             'ip address 2.2.2.2 32',
-    #             'interface GigabitEthernet 0/0/2',
-    #             'ip address 10.1.1.2 24',
-    #             'ospf 1 router-id 2.2.2.2',
-    #             'area 0.0.0.0',
-    #             'network 10.1.1.0 0.0.0.255',
-    #             'network 2.2.2.2 0.0.0.0'
-    #             ]
-    # client1.config(c_cmds_1)
-    # client2.config(c_cmds_2)
+    c_cmds_1 = ['sysname AR1',
+                'interface LoopBack 0',
+                'ip address 1.1.1.1 32',
+                'interface GigabitEthernet 0/0/2',
+                'ip address 10.1.1.1 24',
+                'ospf 1 router-id 1.1.1.1',
+                'area 0.0.0.0',
+                'network 10.1.1.0 0.0.0.255',
+                'network 1.1.1.1 0.0.0.0'
+                ]
+
+    c_cmds_2 = ['sysname AR2',
+                'interface LoopBack 0',
+                'ip address 2.2.2.2 32',
+                'interface GigabitEthernet 0/0/2',
+                'ip address 10.1.1.2 24',
+                'ospf 1 router-id 2.2.2.2',
+                'area 0.0.0.0',
+                'network 10.1.1.0 0.0.0.255',
+                'network 2.2.2.2 0.0.0.0'
+                ]
+    # client1.config(c_cmds_1, verbose=True)
+    # client2.config(c_cmds_2, verbose=True)
 
     # print(client1.dis_cur())
-    for r in client1.display(['display ospf peer']):
+    for r in client1.display(['display ospf peer', 'dis ver']):
         print(r)
