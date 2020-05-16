@@ -74,42 +74,42 @@ if __name__ == '__main__':
     client2 = QYTHuaweiSSH(hostname=r2, username=username, password=password)
 
     # 查看Current Config
-    # print(client1.dis_cur())
-    #
+    print(client1.dis_cur())
+
     # 配置OSPF
-    # c_cmds_1 = ['sysname AR1',
-    #             'interface LoopBack 0',
-    #             'ip address 1.1.1.1 32',
-    #             'interface GigabitEthernet 0/0/2',
-    #             'ip address 10.1.1.1 24',
-    #             'ospf 1 router-id 1.1.1.1',
-    #             'area 0.0.0.0',
-    #             'network 10.1.1.0 0.0.0.255',
-    #             'network 1.1.1.1 0.0.0.0'
-    #             ]
-    #
-    # c_cmds_2 = ['sysname AR2',
-    #             'interface LoopBack 0',
-    #             'ip address 2.2.2.2 32',
-    #             'interface GigabitEthernet 0/0/2',
-    #             'ip address 10.1.1.2 24',
-    #             'ospf 1 router-id 2.2.2.2',
-    #             'area 0.0.0.0',
-    #             'network 10.1.1.0 0.0.0.255',
-    #             'network 2.2.2.2 0.0.0.0'
-    #             ]
-    # client1.config(c_cmds_1, verbose=True)
-    # client2.config(c_cmds_2, verbose=True)
-    #
-    # snmp_cmds = ['snmp-agent sys-info version v2c',
-    #              'snmp-agent sys-info contact collinsctk',
-    #              'snmp-agent sys-info location beijing_qyt',
-    #              'snmp-agent community read QytangR0'
-    #              ]
-    #
-    # client1.config(snmp_cmds.copy(), verbose=True)
-    # client2.config(snmp_cmds.copy(), verbose=True)
-    #
+    c_cmds_1 = ['sysname AR1',
+                'interface LoopBack 0',
+                'ip address 1.1.1.1 32',
+                'interface GigabitEthernet 0/0/2',
+                'ip address 10.1.1.1 24',
+                'ospf 1 router-id 1.1.1.1',
+                'area 0.0.0.0',
+                'network 10.1.1.0 0.0.0.255',
+                'network 1.1.1.1 0.0.0.0'
+                ]
+
+    c_cmds_2 = ['sysname AR2',
+                'interface LoopBack 0',
+                'ip address 2.2.2.2 32',
+                'interface GigabitEthernet 0/0/2',
+                'ip address 10.1.1.2 24',
+                'ospf 1 router-id 2.2.2.2',
+                'area 0.0.0.0',
+                'network 10.1.1.0 0.0.0.255',
+                'network 2.2.2.2 0.0.0.0'
+                ]
+    client1.config(c_cmds_1, verbose=True)
+    client2.config(c_cmds_2, verbose=True)
+
+    snmp_cmds = ['snmp-agent sys-info version v2c',
+                 'snmp-agent sys-info contact collinsctk',
+                 'snmp-agent sys-info location beijing_qyt',
+                 'snmp-agent community read QytangR0'
+                 ]
+
+    client1.config(snmp_cmds.copy(), verbose=True)
+    client2.config(snmp_cmds.copy(), verbose=True)
+
     # 其他查看内容
     for r in client1.display(['display ospf peer', 'dis ver']):
         print(r)

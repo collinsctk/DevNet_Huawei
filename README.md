@@ -27,9 +27,9 @@ print(snmp_client.location())<br>
 \# CPU利用率<br>
 print(snmp_client.cpu_usage())<br>
 \# 内存利用率<br>
-\print(snmp_client.mem_usage())<br>
+print(snmp_client.mem_usage())<br>
 \# 接口清单<br>
-\print(snmp_client.get_ifs())<br>
+print(snmp_client.get_ifs())<br>
 \# 接口速率<br>
 print(snmp_client.get_if_speed())<br>
 \# 接口入向字节数<br>
@@ -42,4 +42,39 @@ username = 'admin'<br>
 password = 'Cisc0123'<br>
 from qyt_devnet.qyt_cmd import QYTHuaweiSSH<br>
 client1 = QYTHuaweiSSH(hostname=r1, username=username, password=password)<br>
+\# 查看display current
 print(client1.dis_cur())<br>
+c_cmds_1 = \['sysname AR1',<br>
+            'interface LoopBack 0',<br>
+            'ip address 1.1.1.1 32',<br>
+            'interface GigabitEthernet 0/0/2',<br>
+            'ip address 10.1.1.1 24',<br>
+            'ospf 1 router-id 1.1.1.1',<br>
+            'area 0.0.0.0',<br>
+            'network 10.1.1.0 0.0.0.255',<br>
+            'network 1.1.1.1 0.0.0.0'<br>
+            ]<br>
+<br>
+c_cmds_2 = \['sysname AR2',<br>
+            'interface LoopBack 0',<br>
+            'ip address 2.2.2.2 32',<br>
+            'interface GigabitEthernet 0/0/2',<br>
+            'ip address 10.1.1.2 24',<br>
+            'ospf 1 router-id 2.2.2.2',<br>
+            'area 0.0.0.0',<br>
+            'network 10.1.1.0 0.0.0.255',<br>
+            'network 2.2.2.2 0.0.0.0'<br>
+            ]<br>
+<br>            
+client1.config(c_cmds_1, verbose=True)<br>
+client2.config(c_cmds_2, verbose=True)<br>
+<br>
+snmp_cmds = \['snmp-agent sys-info version v2c',<br>
+             'snmp-agent sys-info contact collinsctk',<br>
+             'snmp-agent sys-info location beijing_qyt',<br>
+             'snmp-agent community read QytangR0'<br>
+             ]<br>
+<br>
+client1.config(snmp_cmds.copy(), verbose=True)<br>
+client2.config(snmp_cmds.copy(), verbose=True)<br>
+
