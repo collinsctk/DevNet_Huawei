@@ -49,7 +49,7 @@ username = 'admin'<br>
 password = 'Cisc0123'<br>
 from qyt_devnet.qyt_cmd import QYTHuaweiSSH<br>
 client1 = QYTHuaweiSSH(hostname=r1, username=username, password=password)<br>
-\# 查看display current
+\# 查看display current<br>
 print(client1.dis_cur())<br>
 \# 配置OSPF<br>
 c_cmds_1 = \['sysname AR1',<br>
