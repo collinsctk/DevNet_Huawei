@@ -44,7 +44,7 @@ from qyt_devnet.qyt_cmd import QYTHuaweiSSH<br>
 client1 = QYTHuaweiSSH(hostname=r1, username=username, password=password)<br>
 \# 查看display current
 print(client1.dis_cur())<br>
-\# 配置OSPF
+\# 配置OSPF<br>
 c_cmds_1 = \['sysname AR1',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'interface LoopBack 0',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ip address 1.1.1.1 32',<br>
@@ -70,7 +70,7 @@ c_cmds_2 = \['sysname AR2',<br>
 client1.config(c_cmds_1, verbose=True)<br>
 client2.config(c_cmds_2, verbose=True)<br>
 <br>
-\# 配置SNMP
+\# 配置SNMP<br>
 snmp_cmds = \['snmp-agent sys-info version v2c',<br>
              'snmp-agent sys-info contact collinsctk',<br>
              'snmp-agent sys-info location beijing_qyt',<br>
