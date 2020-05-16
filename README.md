@@ -44,16 +44,17 @@ from qyt_devnet.qyt_cmd import QYTHuaweiSSH<br>
 client1 = QYTHuaweiSSH(hostname=r1, username=username, password=password)<br>
 \# 查看display current
 print(client1.dis_cur())<br>
+\# 配置OSPF
 c_cmds_1 = \['sysname AR1',<br>
-            'interface LoopBack 0',<br>
-            'ip address 1.1.1.1 32',<br>
-            'interface GigabitEthernet 0/0/2',<br>
-            'ip address 10.1.1.1 24',<br>
-            'ospf 1 router-id 1.1.1.1',<br>
-            'area 0.0.0.0',<br>
-            'network 10.1.1.0 0.0.0.255',<br>
-            'network 1.1.1.1 0.0.0.0'<br>
-            ]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'interface LoopBack 0',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ip address 1.1.1.1 32',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'interface GigabitEthernet 0/0/2',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ip address 10.1.1.1 24',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ospf 1 router-id 1.1.1.1',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'area 0.0.0.0',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'network 10.1.1.0 0.0.0.255',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'network 1.1.1.1 0.0.0.0'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
 <br>
 c_cmds_2 = \['sysname AR2',<br>
             'interface LoopBack 0',<br>
@@ -69,6 +70,7 @@ c_cmds_2 = \['sysname AR2',<br>
 client1.config(c_cmds_1, verbose=True)<br>
 client2.config(c_cmds_2, verbose=True)<br>
 <br>
+\# 配置SNMP
 snmp_cmds = \['snmp-agent sys-info version v2c',<br>
              'snmp-agent sys-info contact collinsctk',<br>
              'snmp-agent sys-info location beijing_qyt',<br>
@@ -77,4 +79,6 @@ snmp_cmds = \['snmp-agent sys-info version v2c',<br>
 <br>
 client1.config(snmp_cmds.copy(), verbose=True)<br>
 client2.config(snmp_cmds.copy(), verbose=True)<br>
-
+\# 其他查看内容
+for r in client1.display(['display ospf peer', 'dis ver']):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(r)<br>
