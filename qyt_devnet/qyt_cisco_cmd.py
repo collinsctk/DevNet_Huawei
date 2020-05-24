@@ -77,6 +77,6 @@ if __name__ == '__main__':
     password = 'Cisc0123'
     client1 = QYTCiscoSSH(hostname=r1, username=username, password=password)
     # print(client1.show_run())
-    cmds = ['show ver', 'show ip int br', 'end']
+    cmds = ['show ver', 'show ip int br', '']
     # print(client1.show(cmds))
     client1.config(cmds)
