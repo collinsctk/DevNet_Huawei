@@ -3,7 +3,17 @@
   <component name="RemoteMappingsManager">
     <list>
       <list>
+<<<<<<< HEAD
         <remote-mappings server-id="python@20cde98d-d338-4af9-b65e-5f2436382f15" />
+=======
+        <remote-mappings server-id="python@sftp://root@192.168.200.130:22/usr/local/bin/python3">
+          <settings>
+            <list>
+              <mapping local-root="$PROJECT_DIR$" remote-root="/DevNet_Huawei" />
+            </list>
+          </settings>
+        </remote-mappings>
+>>>>>>> eabad8c1679bc65dbe1931654df1ed61acc12085
       </list>
     </list>
   </component>

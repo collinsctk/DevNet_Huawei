@@ -1,5 +1,5 @@
-from qfh.modules.snmp_v2_get import snmpv2_get
-from qfh.modules.snmp_v2_getnext import snmpv2_getnext
+from qyt_devnet.modules.snmp_v2_get import snmpv2_get
+from qyt_devnet.modules.snmp_v2_getnext import snmpv2_getnext
 
 
 class QYTHuaweiSNMP:

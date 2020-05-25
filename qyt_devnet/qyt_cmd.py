@@ -110,6 +110,6 @@ if __name__ == '__main__':
     client1.config(snmp_cmds.copy(), verbose=True)
     client2.config(snmp_cmds.copy(), verbose=True)
 
-    # # 其他查看内容
+    # 其他查看内容
     for r in client1.display(['display ospf peer', 'dis ver']):
         print(r)
