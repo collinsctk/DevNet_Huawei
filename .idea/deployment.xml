@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
-  <component name="PublishConfigData" autoUpload="Always" serverName="root@192.168.1.21:22" autoUploadExternalChanges="true">
+  <component name="PublishConfigData">
     <serverData>
       <paths name="root@192.168.1.21:22">
         <serverdata>
           <mappings>
-            <mapping deploy="/DevNet_Huawei" local="$PROJECT_DIR$" />
-=======
-  <component name="PublishConfigData" autoUpload="Always" serverName="root@192.168.200.130:22">
-    <serverData>
-      <paths name="root@192.168.200.130:22">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/DevNet_Huawei" local="$PROJECT_DIR$" web="/" />
->>>>>>> eabad8c1679bc65dbe1931654df1ed61acc12085
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
     </serverData>
-    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>

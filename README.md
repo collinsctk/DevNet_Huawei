@@ -21,10 +21,16 @@ pip3 install qyt_devnet
 ## 使用案例
 
 \# SNMP<br>
+\# 华为<br>
 from qyt_devnet.qyt_snmp import QYTHuaweiSNMP<br>
+\# 思科<br>
+from qyt_devnet.qyt_cisco_snmp import QYTCiscoSNMP<br>
 r1 = '192.168.1.151'<br>
 community_ro = "QytangR0"<br>
+\# 华为<br>
 snmp_client = QYTHuaweiSNMP(r1, community_ro)<br>
+\# 思科<br>
+snmp_client = QYTCiscoSNMP(r1, community_ro)<br>
 \# 系统描述<br>
 print(snmp_client.sys_desc())<br>
 \# 主机名<br>

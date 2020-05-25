@@ -6,7 +6,7 @@ import setuptools
 
 setup(
     name='qyt_devnet',
-    version='0.0.3',
+    version='1.0.0',
     author='cq_bomb',
     author_email='collinsctk@qytang.com',
     url='https://github.com/collinsctk/DevNet_Huawei',
